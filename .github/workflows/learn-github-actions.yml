@@ -14,10 +14,14 @@ jobs:
       - run: bats -v
       
   print-message:
-    - uses: actions/checkout@v3
-    - uses: djuricic1/actions/.github/actions/print-message.yml
-      with:
-        message: 'Hello, GitHub Actions!' 
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3 # Necessary to access local action
+        - name: Local Action Call
+        - uses: ./.github/actions/print-message.yml
+          with:
+            message: 'Hello, GitHub Actions!' 
+     
           
 
 
