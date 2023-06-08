@@ -14,9 +14,10 @@ jobs:
       - run: bats -v
       
   print-message:
-    uses: djuricic1/actions/.github/actions/print-message.yml
-    with:
-      message: 'Hello, GitHub Actions!' 
+    - uses: actions/checkout@v3
+    - uses: djuricic1/actions/.github/actions/print-message.yml
+      with:
+        message: 'Hello, GitHub Actions!' 
           
 
 
