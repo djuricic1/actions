@@ -1,15 +1,15 @@
 name: Print Message
 
-on:
-  push: 
-    branches: 
-      - main
+description: 'Prints a custom message'
 
+inputs:
+  message:
+    description: 'The message to print'
+    required: true
+    default: 'Hello, World!'
 
-jobs: 
-  print: 
-    runs-on: ubuntu-latest
-
-    steps: 
-      -name: Print a message
-      run: echo "Hello world"
+runs:
+  using: 'shell'
+  steps:
+    - name: Print the Message
+      run: echo "${{ inputs.message }}"
