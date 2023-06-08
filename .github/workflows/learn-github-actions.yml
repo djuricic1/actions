@@ -6,12 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      # This step references the directory that contains the action.
+      - name: Print a Message
+        uses: ./.github/actions/print-message.yml
+
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
 
-      # This step references the directory that contains the action.
-      - name: Print a Message
-        uses: ./.github/actions/print-message.yml
+      
