@@ -7,10 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pwd
-      - run: ll -a
+      
       # This step references the directory that contains the action.
-      - name: Print a Message
+      - name: Print a Custom Message
         uses: ./.github/actions/print-message.yml
+        with:
+          message: 'Hello, GitHub Actions!'
 
       - uses: actions/setup-node@v3
         with:
