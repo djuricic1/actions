@@ -11,3 +11,7 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+
+      # This step references the directory that contains the action.
+      - name: Print a Message
+        uses: ./.github/actions/print-message.yml
