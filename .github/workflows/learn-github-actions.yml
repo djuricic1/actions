@@ -7,17 +7,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: pwd
-      
-      # This step references the directory that contains the action.
-      - name: Print a Custom Message
-        uses: ./.github/actions/print-message.yml
-        with:
-          message: 'Hello, GitHub Actions!'
-
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+      # This step references the directory that contains the action.
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Print a Custom Message
+        uses: ./.github/actions/print-message.yml
+        with:
+          message: 'Hello, GitHub Actions!'
+
+
 
       
