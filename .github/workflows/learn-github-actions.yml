@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+      - run: pwd
       # This step references the directory that contains the action.
       - name: Print a Message
         uses: ./.github/actions/print-message.yml
